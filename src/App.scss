@@ -1,0 +1,71 @@
+@use "sass:math";
+
+.page {
+  padding: 0 30px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+$square-size: 6px;
+$square-distance-to-text: 4px;
+$children-line-width: 2px;
+$step-size: 25px;
+
+$pull-children-line-vertically-by: 0px;
+
+$icon-color: #d1d2d3;
+$selection-color: rgb(223, 127, 127);
+
+.children {
+  margin-left: math.div($square-size, 2) - math.div($children-line-width, 2);
+
+  padding-left: $step-size;
+  border-left: $children-line-width solid rgb(94, 94, 94);
+}
+
+.paragraph {
+  margin: 10px 0;
+  display: flex;
+}
+
+.icon {
+  display: inline-block;
+  min-width: $square-size;
+  height: $square-size;
+  box-sizing: border-box;
+  background-color: $icon-color;
+
+  margin-top: 7px;
+  margin-right: $square-distance-to-text;
+}
+
+.icon-empty {
+  border: 1px solid $icon-color;
+  background-color: initial;
+}
+
+.paragraph.selected {
+  color: $selection-color;
+  .icon {
+    background-color: $selection-color;
+  }
+  .icon-empty {
+    border: 1px solid $selection-color;
+    background-color: initial;
+  }
+}
+
+/* 
+
+  fontSize: 15,
+  lineHeight: 1.2,
+  totalLineHeight: 0,
+  fontWeight: 400,
+  paragraphSpace: 10,
+
+  background: "#1D1F20",
+
+  foreground: "#ffffff",
+
+  childrenHeightLine: "#36383E",
+  selection: "#272930", */
